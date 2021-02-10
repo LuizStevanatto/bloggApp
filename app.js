@@ -147,6 +147,6 @@ app.use("/usuarios", usuarios)
 
 // Outros
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(4000, () => {
   console.log("Server is running...");
 });
