@@ -14,7 +14,7 @@ const Categoria = mongoose.model("categorias");
 const usuarios = require("./routes/usuario");
 const passport = require("passport");
 require("./config/auth")(passport)
-const db = require("./config/db")
+require("./config/db")
 
 // Configuração
 // Sessão
@@ -54,17 +54,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 // Mongoose
-mongoose
-  .connect(db.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Conectado com o banco de dados");
-  })
-  .catch((err) => {
-    console.log("Erro na conexão com o banco de dados" + err);
-  });
+
 
 // Public
 app.use(express.static(path.join(__dirname, "public")));
@@ -146,7 +136,7 @@ app.use("/admin", admin);
 app.use("/usuarios", usuarios)
 
 // Outros
-const PORT = process.env.PORT || 3000;
+// const PORT = 3001;
 app.listen(4000, () => {
   console.log("Server is running...");
 });
